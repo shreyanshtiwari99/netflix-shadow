@@ -1,5 +1,5 @@
 const express = require('express');
-var dotenv = require('dotenv');
+
 const app = express();
 const mongoose = require('mongoose');
 const  bodyParser = require('body-parser');
@@ -7,7 +7,7 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({
     extended: false
  }));
- dotenv.config();
+
 
 
 
@@ -17,7 +17,7 @@ app.use('/assets', express.static('assets'));
 app.use(bodyParser.json());
 app.set('view engine', 'ejs');
 
-mongoose.connect(process.env.MONGODB_URI,{useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect("mongodb+srv://Shreyansh:shreytheking99@cluster0.5o5ap.mongodb.net/netflix-shadow?retryWrites=true&w=majority",{useNewUrlParser: true, useUnifiedTopology: true})
     .then(()=> console.log('Connected to MongoDB...'))
     .catch((err)=> console.error('Could not connect to the DB...', err))
 
