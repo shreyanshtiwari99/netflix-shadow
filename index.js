@@ -29,7 +29,7 @@ const userSchema = new mongoose.Schema({
 const User = mongoose.model('User', userSchema);
 
 
-app.get('/home', async (req,res)=>{
+app.get('/', async (req,res)=>{
  
     res.render('index', {pageTitle: 'Netflix'});
 
@@ -37,7 +37,7 @@ app.get('/home', async (req,res)=>{
 });
 
 
-app.post('/home', async (req,res)=>{
+app.post('/', async (req,res)=>{
     
      async function storeUser(){
         const user = new User({
